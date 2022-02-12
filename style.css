@@ -1,0 +1,21 @@
+.table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   
+    border: 1px solid black;
+    width: fit-content;
+    
+}
+.table > p {
+    border: 1px solid black;
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+.property {
+    background-color: lightgoldenrodyellow;
+}
+
+.link {
+    padding-top: 2em;
+}
