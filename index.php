@@ -25,25 +25,9 @@ function d($value, $function = '')
 </head>
 <body>
     <?php
-        $array = array(1, 2, 3);
-        $coolerArray = ["bb" => 3, "s" => 2, 2 => 3];
-
-        d($coolerArray);
-        $array[33] = 2.5;
-        $array[null] = "oi";
-        $array[-1] = "aa";
-        $array['-1.02'] = 'bb';
-        $array[] = null;
-        $array['z'] = 'ei';
-        // d($array);
-        // d($array, 'p');
-        // d($array['-1.02'])
-
-        foreach ($array as $key => $value) {
-            if(!is_numeric($value)) {
-                d("key: {$key}, value: {$value}");
-            }
-        }
+        $units = ['me', 'you', 'them', 'wizard'];
+        echo array_unshift($units, "wait", "what", "why");
+        d($units, 'p');
 
     ?>
 </body>
