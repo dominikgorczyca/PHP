@@ -1,9 +1,16 @@
 <?php
-function d($value)
+function d($value, $function = '')
 {
-    echo "<pre>";
-    echo var_dump($value);
-    echo "</pre>";
+    if($function === 'p') {
+        echo "<pre>";
+        print_r($value);
+        echo "</pre>";
+    } else {
+        echo "<pre>";
+        var_dump($value);
+        echo "</pre>";
+    }
+
 }
 ?>
 <!DOCTYPE html>
@@ -16,21 +23,27 @@ function d($value)
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <?php
+        $array = array(1, 2, 3);
+        $coolerArray = ["bb" => 3, "s" => 2, 2 => 3];
 
+        d($coolerArray);
+        $array[33] = 2.5;
+        $array[null] = "oi";
+        $array[-1] = "aa";
+        $array['-1.02'] = 'bb';
+        $array[] = null;
+        $array['z'] = 'ei';
+        // d($array);
+        // d($array, 'p');
+        // d($array['-1.02'])
 
-
-    function add(?int ...$nums): int 
-    {
-        // $nums = func_get_args();
-        d($nums);
-        return array_sum($nums);
-    }
-
-    d(add(3, 2, 10, 2, 222, '3.4', null));
-    d(add(2.23232, 3));
+        foreach ($array as $key => $value) {
+            if(!is_numeric($value)) {
+                d("key: {$key}, value: {$value}");
+            }
+        }
 
     ?>
 </body>
