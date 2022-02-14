@@ -25,8 +25,18 @@ function d($value, $function = '')
 </head>
 <body>
     <?php
-        $units = ['me', 'you', 'them', 'wizard'];
-        echo array_unshift($units, "wait", "what", "why");
+        $array1 = ["gr" => 3, "nutshell" => 4];
+        $array2 = [2, 299, 10 => 33];
+        $units = ["Ah" => 'me', 'you', "noice" => 'them', 'wizard'];
+        echo array_push($units, ...$array2);
+        $units[array_keys($array1)[0]] = '3';
+        d($units, 'p');
+        echo array_pop($units);
+        d($units, 'p');
+        d(array_splice($units, 5, 1));
+        d($units, 'p');
+        d(array_shift($units));
+        d(array_shift($units));
         d($units, 'p');
 
     ?>
