@@ -33,7 +33,7 @@ function d(mixed $value, string $function = ''): void
     {
         private $legs;
         private $whiskers;
-
+ 
         public function __construct($a, $b)
         {
             $this -> legs = $a;
