@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 function d(mixed $value, string $function = ''): void
 {
     if ($function === 'p') {
@@ -42,16 +40,11 @@ function d(mixed $value, string $function = ''): void
         }
     }
 
-    $array1 = [new KECZ(10, 20), ["gr" => 3, "nutshell" => 4], 4, '4', 5, '5'];
-
+    $array1 = [["gr" => 3, "nutshell" => 4], 4, '4', 5, '5'];
     d($array1, 'p');
-    d(in_array(new KECZ(10, 20), $array1, true));
-    d(spl_object_hash($array1[0]));
-    
-    $object = &$array1[0];
-    d(spl_object_hash($object));
-    d(in_array($object, $array1, true));
-    // d(in_array(spl_object_hash($object), $array1, true));
+    d(array_reverse($array1, true), 'p');
+    d($array1, 'p');
+
 
 
     ?>
