@@ -27,19 +27,6 @@ function d(mixed $value, string $function = ''): void
 <body>
     <?php
 
-    class KECZ
-    {
-        private $legs;
-        private $whiskers;
- 
-        public function __construct($a, $b)
-        {
-            $this -> legs = $a;
-            $this -> whiskers = $b;
-            d("a: {$this -> legs} i b: {$this -> whiskers}");
-        }
-    }
-
     $array1 = [["gr" => 3, "nutshell" => 4], 4, '4', 5, '5'];
     d($array1, 'p');
     d(array_reverse($array1, true), 'p');
