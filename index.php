@@ -27,10 +27,40 @@ function d(mixed $value, string $function = ''): void
 <body>
     <?php
 
-    $array1 = [["gr" => 3, "nutshell" => 4], 4, '4', 5, '5'];
-    d($array1, 'p');
-    d(array_reverse($array1, true), 'p');
-    d($array1, 'p');
+    // function gen_one_to_three() {
+    //     for ($i = 1; $i <= 3; $i++) {
+    //         // Note that $i is preserved between yields.
+    //         yield $i;
+    //     }
+    // }
+
+    // $generator = gen_one_to_three();
+    // foreach ($generator as $value) {
+    //     echo "$value\n";
+    // }
+
+    class anything implements IteratorAggregate {
+        private $things = ["nice", "noice", "neice"];
+
+        public function getIterator(): Traversable
+        {
+            return new ArrayIterator(($this -> things));
+        } 
+    }
+
+    function format($a = "g", $b = "a", $c = "s") {
+        return "$a$b$c";
+    }
+
+    $oh = ["b" => "oi"];
+
+    d(format(b: "oi"));
+
+
+
+    
+
+
 
 
 

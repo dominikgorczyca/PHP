@@ -1,42 +1,35 @@
-function getTodos(callback) {
+function getTodos(endPoint, callback = () => {}) {
     let request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', () => {
         // console.log(request);
         if(request.readyState === 4 && request.status === 200) {
             const data = JSON.parse(request.responseText);
-            callback(undefined, data);
+            document.getElementById("title").innerHTML += `${data[0].one} `;
+            document.getElementById("completed").innerHTML += `${data[1].two} `;
+            callback();
         } else if (request.readyState === 4) {
             callback('could not fetch', undefined);
         }
     });
     
-    request.open('GET', 'myjson.json');
+    request.open('GET', endPoint);
     request.send();
 }
 
-console.log(1);
 
-getTodos((err, data) => {
-    console.log('callback fired');
-    // console.log(err, err == undefined);
-    
-    if(err === undefined) {
-        console.log(data[0]);
+const something = function () {
+    return new Promise((res, rej) => {
+        // res("dataaa");
+        rej("error");
+    });
+}
 
-
-        if(data.one == data.two) {
-            console.log("nice");
-        }
-        console.log(data);
-        console.log(typeof(data.two));
-        document.getElementById("title").innerText = data.one;
-        document.getElementById("completed").innerText = data.two;
-    } else {
-        console.log(err)
-    }
+something().then(data => {
+    console.log(data);
+}).catch(err => {
+    console.log(err);
 });
 
-console.log(2);
 
 
