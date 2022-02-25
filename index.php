@@ -27,36 +27,15 @@ function d(mixed $value, string $function = ''): void
 <body>
     <?php
 
-    // function gen_one_to_three() {
-    //     for ($i = 1; $i <= 3; $i++) {
-    //         // Note that $i is preserved between yields.
-    //         yield $i;
-    //     }
-    // }
-
-    // $generator = gen_one_to_three();
-    // foreach ($generator as $value) {
-    //     echo "$value\n";
-    // }
-
-    class anything implements IteratorAggregate {
-        private $things = ["nice", "noice", "neice"];
-
-        public function getIterator(): Traversable
-        {
-            return new ArrayIterator(($this -> things));
-        } 
-    }
-
-    function format($a = "g", $b = "a", $c = "s") {
-        return "$a$b$c";
-    }
-
-    $oh = ["b" => "oi"];
-
-    d(format(b: "oi"));
+    $money = ["a" => 1, "b" => 2, "c" => 3.00];
+    list("b" => $first, "a" => $gg, "c" => $third) = $money;
 
 
+    
+    // d([...$money], 'p');
+    d($first);
+    d($gg);
+    d($third);
 
     
 
