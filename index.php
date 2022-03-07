@@ -1,4 +1,6 @@
 <?php
+    declare (strict_types = 1);
+
 
 function d(mixed $value, string $function = ''): void
 {
@@ -27,21 +29,60 @@ function d(mixed $value, string $function = ''): void
 <body>
     <?php
 
-    $money = ["a" => 1, "b" => 2, "c" => 3.00];
-    list("b" => $first, "a" => $gg, "c" => $third) = $money;
-
-
-    
-    // d([...$money], 'p');
-    d($first);
-    d($gg);
-    d($third);
-
-    
+    class Animal {
 
 
 
+        public function __construct(private bool $alive)
+        {
+            
+        }
 
+        public function isAlive() 
+        {
+            return $this->alive;
+        }
+
+        public function sound() 
+        {
+            return "grajgfakljvkldf";
+        }
+
+
+    }
+    class Cat extends Animal
+    { 
+
+        public function __construct($alive, private string $color)
+        {
+            parent::__construct($alive);
+        }
+
+        public function sound() 
+        {
+            return "miau";
+        }
+
+        public function isAlivee() 
+        {
+            if(parent::isAlive()) {
+                return "cat says {$this->sound()} and is alive";
+            } else {
+                return "cat is dead";
+            }
+            
+        }
+
+    }
+
+    $animal = new Animal(true);
+    d($animal->sound());
+    $kocz = new Cat(false, "red"); 
+    d($kocz->isAlivee());
+    d($kocz->sound());
+    // $miaucz = new Cat(2); 
+    // $miaucz->powerLevel = 2;   
+    // d($miaucz->powerLevel);
 
     ?>
 </body>
